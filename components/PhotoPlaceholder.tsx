@@ -14,7 +14,7 @@ export const PhotoPlaceholder: React.FC<Props> = ({ title, images, onAdd, onRemo
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const files = Array.from(e.target.files);
-      const promises = files.map(file => {
+      const promises = files.map((file: File) => {
         return new Promise<string>((resolve) => {
           const reader = new FileReader();
           reader.onload = (e) => {
