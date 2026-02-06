@@ -4,9 +4,10 @@ import { DimensionalData } from '../types';
 interface Props {
   data: DimensionalData;
   onChange: (data: DimensionalData) => void;
+  imageFileName?: string;
 }
 
-export const DimensionalSection: React.FC<Props> = ({ data, onChange }) => {
+export const DimensionalSection: React.FC<Props> = ({ data, onChange, imageFileName = "1-EMPAQUE RECUPERABLE TKR1 0101-5000.png" }) => {
   
   const updateLength = (key: string, val: string) => {
     onChange({ ...data, lengths: { ...data.lengths, [key]: val } });
@@ -42,24 +43,23 @@ export const DimensionalSection: React.FC<Props> = ({ data, onChange }) => {
       <div className="flex flex-col md:flex-row gap-8">
         {/* Image Replacement */}
         <div className="w-full md:w-1/3 flex items-start justify-center py-4 bg-white relative">
-             {/* 
-                NOTE: The user must place the file "1-EMPAQUE RECUPERABLE TKR1 0101-5000.png" 
-                in the public/root directory of the project.
-             */}
              <img 
-                src="1-EMPAQUE RECUPERABLE TKR1 0101-5000.png" 
+                src={imageFileName} 
                 alt="Diagrama de Herramienta Tacker" 
                 className="w-full h-auto object-contain max-h-[900px]"
                 onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     const errDiv = document.getElementById('img-error');
                     if (errDiv) errDiv.style.display = 'block';
+                    // Update error text if possible, or leave generic
+                    const errCode = document.getElementById('err-code-text');
+                    if (errCode) errCode.innerText = imageFileName;
                 }}
             />
             <div id="img-error" className="hidden text-center p-8 border-2 border-dashed border-gray-300 rounded text-gray-500 mt-10">
                 <p className="font-bold text-red-500 mb-2">Imagen no encontrada</p>
                 <p className="text-sm">Por favor, asegúrese de que el archivo de imagen exista en la carpeta del proyecto con el nombre:</p>
-                <code className="block bg-gray-100 p-2 mt-2 font-mono text-black border border-gray-300 rounded text-xs break-all">1-EMPAQUE RECUPERABLE TKR1 0101-5000.png</code>
+                <code id="err-code-text" className="block bg-gray-100 p-2 mt-2 font-mono text-black border border-gray-300 rounded text-xs break-all">{imageFileName}</code>
             </div>
         </div>
 

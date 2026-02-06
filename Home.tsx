@@ -41,7 +41,7 @@ export const Home: React.FC<Props> = ({ onNavigate }) => {
         {/* Grid of Checklists */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            {/* Card 1: POCOP001 */}
+            {/* Card 1: POCOP001-0101 */}
             <div 
                 onClick={() => onNavigate('checklist-001')}
                 className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden cursor-pointer group"
@@ -58,10 +58,39 @@ export const Home: React.FC<Props> = ({ onNavigate }) => {
                     </div>
                     
                     <h3 className="text-lg font-bold text-gray-800 mb-1">
-                        Empaque Recuperable TKR1
+                        Empaque TKR1 (5")
                     </h3>
                     <p className="text-sm text-gray-500 font-mono mb-4">
                         POCOP001-A2-4 | 0101-5000
+                    </p>
+
+                    <div className="flex items-center text-tackerRed font-bold text-sm group-hover:translate-x-2 transition-transform">
+                        Iniciar Reporte <ArrowRight size={16} className="ml-2" />
+                    </div>
+                </div>
+            </div>
+
+            {/* Card 2: POCOP001-0178 */}
+            <div 
+                onClick={() => onNavigate('checklist-0178')}
+                className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden cursor-pointer group"
+            >
+                <div className="h-2 bg-tackerRed w-full group-hover:h-3 transition-all"></div>
+                <div className="p-6">
+                    <div className="flex justify-between items-start mb-4">
+                        <div className="p-3 bg-red-50 text-tackerRed rounded-full">
+                            <FileText size={24} />
+                        </div>
+                        <span className="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded">
+                            REV. A2-4
+                        </span>
+                    </div>
+                    
+                    <h3 className="text-lg font-bold text-gray-800 mb-1">
+                        Empaque TKR1 (7")
+                    </h3>
+                    <p className="text-sm text-gray-500 font-mono mb-4">
+                        POCOP001-A2-4 | 0178-5000
                     </p>
 
                     <div className="flex items-center text-tackerRed font-bold text-sm group-hover:translate-x-2 transition-transform">
