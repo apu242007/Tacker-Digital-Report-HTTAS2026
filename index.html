@@ -59,7 +59,7 @@
     "react-dom": "https://esm.sh/react-dom@18.3.1",
     "react-dom/": "https://esm.sh/react-dom@18.3.1/",
     "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
-    "lucide-react": "https://esm.sh/lucide-react@0.292.0?deps=react@18.3.1,react-dom@18.3.1",
+    "lucide-react": "https://esm.sh/lucide-react@0.292.0?external=react,react-dom",
     "./App": "./App.tsx",
     "./Home": "./Home.tsx",
     "./types": "./types.ts",
@@ -82,6 +82,26 @@
 </head>
 <body class="bg-gray-100 text-gray-800 antialiased">
     <div id="root"></div>
+
+    <!-- Script de Error Handler para depuración en GitHub Pages -->
+    <script>
+        window.addEventListener('error', function(event) {
+            const root = document.getElementById('root');
+            if (root && root.innerHTML === '') {
+                root.innerHTML = `
+                    <div style="padding: 20px; color: red; font-family: sans-serif;">
+                        <h2 style="font-weight: bold; margin-bottom: 10px;">Error de Carga</h2>
+                        <p style="background: #fee; padding: 10px; border: 1px solid #fcc; border-radius: 4px;">
+                            ${event.message}
+                        </p>
+                        <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+                            Verifica la consola (F12) para más detalles.
+                        </p>
+                    </div>
+                `;
+            }
+        });
+    </script>
 
     <!-- 4. Lógica de la Aplicación -->
     <script type="text/babel" data-type="module" src="./index.tsx"></script>
