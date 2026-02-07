@@ -9,9 +9,25 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "18.3.1",
+    "react": "^19.2.4",
     "lucide-react": "0.292.0",
-    "react-dom": "18.3.1"
+    "./App": "latest",
+    "./Home": "latest",
+    "./types": "latest",
+    "./constants": "latest",
+    "./logic": "latest",
+    "./ChecklistPOCOP001": "latest",
+    "./Checklist0178": "latest",
+    "./Checklist5500": "latest",
+    "./Checklist7000": "latest",
+    "./Checklist9580": "latest",
+    "./components/TraceabilityTable": "latest",
+    "./components/PreAssemblyChecks": "latest",
+    "./components/DimensionalSection": "latest",
+    "./components/InstrumentsTable": "latest",
+    "./components/PhotoPlaceholder": "latest",
+    "./components/SignaturePad": "latest",
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

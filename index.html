@@ -49,22 +49,40 @@
             field-sizing: content;
         }
     </style>
+    
+    <!-- 3. Import Map: Crítico para resolver módulos sin bundler -->
     <script type="importmap">
-    {
-      "imports": {
-        "react": "https://esm.sh/react@18.3.1",
-        "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
-        "lucide-react": "https://esm.sh/lucide-react@0.292.0",
-        "react/": "https://esm.sh/react@18.3.1/",
-        "react-dom/": "https://esm.sh/react-dom@18.3.1/"
-      }
-    }
-    </script>
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.292.0",
+    "./App": "./App.tsx",
+    "./Home": "./Home.tsx",
+    "./types": "./types.ts",
+    "./constants": "./constants.ts",
+    "./logic": "./logic.ts",
+    "./ChecklistPOCOP001": "./ChecklistPOCOP001.tsx",
+    "./Checklist0178": "./Checklist0178.tsx",
+    "./Checklist5500": "./Checklist5500.tsx",
+    "./Checklist7000": "./Checklist7000.tsx",
+    "./Checklist9580": "./Checklist9580.tsx",
+    "./components/TraceabilityTable": "./components/TraceabilityTable.tsx",
+    "./components/PreAssemblyChecks": "./components/PreAssemblyChecks.tsx",
+    "./components/DimensionalSection": "./components/DimensionalSection.tsx",
+    "./components/InstrumentsTable": "./components/InstrumentsTable.tsx",
+    "./components/PhotoPlaceholder": "./components/PhotoPlaceholder.tsx",
+    "./components/SignaturePad": "./components/SignaturePad.tsx",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
 </head>
 <body class="bg-gray-100 text-gray-800 antialiased">
     <div id="root"></div>
 
-    <!-- 3. Lógica de la Aplicación -->
+    <!-- 4. Lógica de la Aplicación -->
     <script type="text/babel" data-type="module" src="./index.tsx"></script>
 </body>
 </html>
