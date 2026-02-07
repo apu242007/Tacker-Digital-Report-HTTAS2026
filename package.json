@@ -9,7 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^19.2.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "lucide-react": "0.292.0",
     "./App": "latest",
     "./Home": "latest",
@@ -26,8 +27,7 @@
     "./components/DimensionalSection": "latest",
     "./components/InstrumentsTable": "latest",
     "./components/PhotoPlaceholder": "latest",
-    "./components/SignaturePad": "latest",
-    "react-dom": "^19.2.4"
+    "./components/SignaturePad": "latest"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
