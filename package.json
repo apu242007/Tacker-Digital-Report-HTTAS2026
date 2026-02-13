@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --base=./",
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^19.2.4",
+    "@supabase/supabase-js": "^2.78.0",
     "lucide-react": "0.292.0",
+    "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },
   "devDependencies": {

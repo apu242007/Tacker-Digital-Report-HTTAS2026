@@ -1,7 +1,0 @@
-{
-  "name": "Tacker Digital Report HTAS",
-  "description": "Digital repair and inspection report for Tacker Solutions TKR1 0101-5000 tools.",
-  "requestFramePermissions": [
-    "camera"
-  ]
-}

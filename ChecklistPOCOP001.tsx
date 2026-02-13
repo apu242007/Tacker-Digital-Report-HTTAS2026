@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { TraceabilityItem, ControlCheckItem, ReportData, DimensionalData, InstrumentItem } from './types';
 import { INITIAL_TRACEABILITY, INITIAL_CHECKS, INITIAL_INSTRUMENTS } from './constants';
 import { TraceabilityTable } from './components/TraceabilityTable';
@@ -7,14 +7,20 @@ import { DimensionalSection } from './components/DimensionalSection';
 import { InstrumentsTable } from './components/InstrumentsTable';
 import { PhotoPlaceholder } from './components/PhotoPlaceholder';
 import { SignaturePad } from './components/SignaturePad';
-import { Printer, Save, AlertTriangle, CheckCircle, XCircle, ArrowLeft } from 'lucide-react';
+import { Printer, Save, AlertTriangle, CheckCircle, XCircle, ArrowLeft, Loader2 } from 'lucide-react';
 import { evaluateToolStatus } from './logic';
+import { checklistPOCOP001Service } from './src/services/api';
 
 interface Props {
     onBack: () => void;
+    reportId?: string;
 }
 
-export const ChecklistPOCOP001: React.FC<Props> = ({ onBack }) => {
+export const ChecklistPOCOP001: React.FC<Props> = ({ onBack, reportId }) => {
+  const [loading, setLoading] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [savedId, setSavedId] = useState<string | null>(reportId || null);
+
   const [data, setData] = useState<ReportData>({
     meta: {
       date: new Date().toISOString().split('T')[0],
@@ -62,6 +68,37 @@ export const ChecklistPOCOP001: React.FC<Props> = ({ onBack }) => {
         section3: []
     }
   });
+
+  // Cargar reporte existente si hay reportId
+  useEffect(() => {
+    if (reportId) {
+      setLoading(true);
+      checklistPOCOP001Service.getById(reportId)
+        .then(report => {
+          if (report) {
+            setData(report as any);
+            setSavedId(reportId);
+          }
+        })
+        .catch(console.error)
+        .finally(() => setLoading(false));
+    }
+  }, [reportId]);
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      const dataWithId = savedId ? { ...data, id: savedId } : data;
+      const newId = await checklistPOCOP001Service.save(dataWithId as any);
+      setSavedId(newId);
+      alert('✅ Reporte guardado exitosamente');
+    } catch (error) {
+      console.error('Error al guardar:', error);
+      alert('❌ Error al guardar el reporte');
+    } finally {
+      setSaving(false);
+    }
+  };
 
   const handleTraceabilityChange = (id: string, field: keyof TraceabilityItem, value: any) => {
     setData(prev => ({
@@ -400,17 +437,27 @@ export const ChecklistPOCOP001: React.FC<Props> = ({ onBack }) => {
 
         {/* FLOATING ACTION BUTTONS */}
         <div className="fixed bottom-6 right-6 flex flex-col gap-3 print:hidden">
-            <button className="bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition flex items-center justify-center" title="Guardar">
-                <Save size={24} />
+            <button onClick={handleSave} disabled={saving} className="bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed" title={savedId ? "Actualizar" : "Guardar"}>
+                {saving ? <Loader2 size={24} className="animate-spin" /> : <Save size={24} />}
             </button>
             <button className="bg-tackerRed text-white p-4 rounded-full shadow-lg hover:bg-red-700 transition flex items-center justify-center" title="Imprimir PDF" onClick={() => window.print()}>
                 <Printer size={24} />
             </button>
         </div>
 
+        {/* Loading Overlay */}
+        {loading && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-lg shadow-xl flex items-center gap-3">
+              <Loader2 size={24} className="animate-spin text-tackerRed" />
+              <span>Cargando reporte...</span>
+            </div>
+          </div>
+        )}
+
       </div>
       <div className="text-center text-gray-500 text-xs mt-8 pb-4 print:hidden">
-         Tacker Solutions Digital Report App v1.1
+         Tacker Solutions Digital Report App v1.1 {savedId && <span className="text-green-600">| ID: {savedId.slice(0,8)}...</span>}
       </div>
     </div>
   );

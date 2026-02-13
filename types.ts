@@ -79,5 +79,6 @@ export interface ReportData {
     section1: string[]; // Conexiones
     section2: string[]; // Orings
     section3: string[]; // Balanceadoras
+    section4?: string[]; // Sello (usado en Setting Tool)
   }
 }

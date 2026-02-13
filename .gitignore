@@ -88,7 +88,3 @@ dist
 # OS metadata
 .DS_Store
 Thumbs.db
-
-.vite/
-node_modules/
-dist/
