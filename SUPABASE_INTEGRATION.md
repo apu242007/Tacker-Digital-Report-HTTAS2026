@@ -364,3 +364,4 @@ CREATE POLICY "Users can only access their reports" ON repair_reports
 ---
 
 **Generado automáticamente para el proyecto Httas2026 - Tacker Solutions**
+ 

@@ -591,3 +591,4 @@ export const ChecklistPescadorTCR2: React.FC<Props> = ({ onBack, reportId }) => 
     </div>
   );
 };
+ 

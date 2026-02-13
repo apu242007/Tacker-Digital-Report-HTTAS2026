@@ -49,4 +49,4 @@ Este proyecto está listo para ser desplegado en cualquier hosting de archivos e
 Solo asegúrate de subir todos los archivos y carpetas manteniendo la estructura actual.
 
 ---
-© Tacker Solutions
+© Tacker Solutions 

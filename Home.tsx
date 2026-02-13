@@ -379,4 +379,4 @@ export const Home: React.FC<Props> = ({ onNavigate }) => {
       </footer>
     </div>
   );
-};
+}; 

@@ -597,3 +597,4 @@ export const ChecklistSNT2_1667: React.FC<Props> = ({ onBack, reportId }) => {
     </div>
   );
 };
+ 

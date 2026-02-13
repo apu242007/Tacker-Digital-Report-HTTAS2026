@@ -72,4 +72,4 @@ export const evaluateToolStatus = (data: ReportData): ValidationResult => {
   if (isIncomplete) return { status: 'INCOMPLETO', reasons: ['Faltan datos de verificación'] };
   
   return { status: 'APTO', reasons: [] };
-};
+}; 

@@ -1088,4 +1088,4 @@ export const INITIAL_CHECKS_RETENEDOR_1540: ControlCheckItem[] = [
     { id: 3, description: 'Verificar y realizar control dimensional', isYesNo: true, hasMeasurement: false },
     { id: 4, description: 'Verificar dureza del elastómero', isYesNo: true, hasMeasurement: false },
     { id: 5, description: 'Verificar alambre retenedor de mordaza', isYesNo: true, hasMeasurement: false },
-];
+]; 

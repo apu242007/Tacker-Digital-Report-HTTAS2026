@@ -81,4 +81,4 @@ export interface ReportData {
     section3: string[]; // Balanceadoras
     section4?: string[]; // Sello (usado en Setting Tool)
   }
-}
+} 

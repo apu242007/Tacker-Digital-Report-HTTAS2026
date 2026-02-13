@@ -996,3 +996,4 @@ export default {
   checklistRetenedor1540_5500_2Service,
   photoStorageService,
 };
+ 

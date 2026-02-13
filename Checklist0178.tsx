@@ -476,4 +476,4 @@ export const Checklist0178: React.FC<Props> = ({ onBack, reportId }) => {
       </div>
     </div>
   );
-};
+}; 

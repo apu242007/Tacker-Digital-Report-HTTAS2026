@@ -621,3 +621,4 @@ export const ChecklistStingerCementar: React.FC<Props> = ({ onBack, reportId }) 
     </div>
   );
 };
+ 

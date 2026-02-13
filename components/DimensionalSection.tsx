@@ -209,4 +209,4 @@ export const DimensionalSection: React.FC<Props> = ({ data, onChange, imageFileN
       </div>
     </div>
   );
-};
+}; 

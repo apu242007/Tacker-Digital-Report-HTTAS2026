@@ -356,3 +356,4 @@ COMMENT ON VIEW v_reports_summary IS 'Vista resumen de reportes con conteo de it
 -- ─────────────────────────────────────────────
 -- FIN DE MIGRACIÓN
 -- ─────────────────────────────────────────────
+ 

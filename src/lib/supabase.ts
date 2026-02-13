@@ -20,3 +20,4 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseKey, {
 
 // Exportar tipos útiles
 export type { Database };
+ 

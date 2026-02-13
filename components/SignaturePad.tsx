@@ -125,4 +125,4 @@ export const SignaturePad: React.FC<Props> = ({ value, onChange, label }) => {
         </div>
     </div>
   );
-};
+}; 

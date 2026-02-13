@@ -428,3 +428,4 @@ export interface RepairReportWithRelations extends RepairReportRow {
   instrument_items?: InstrumentItemRow[];
   report_photos?: ReportPhotoRow[];
 }
+ 

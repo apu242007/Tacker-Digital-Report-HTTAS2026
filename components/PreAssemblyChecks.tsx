@@ -76,4 +76,4 @@ export const PreAssemblyChecks: React.FC<Props> = ({ checks, onChange }) => {
       })}
     </div>
   );
-};
+}; 

@@ -65,4 +65,4 @@ export const TraceabilityTable: React.FC<Props> = ({ data, onChange }) => {
       </table>
     </div>
   );
-};
+}; 

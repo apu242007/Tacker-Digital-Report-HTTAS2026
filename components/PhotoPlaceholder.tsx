@@ -99,4 +99,4 @@ export const PhotoPlaceholder: React.FC<Props> = ({ title, images, onAdd, onRemo
        </div>
     </div>
   );
-};
+}; 

@@ -76,4 +76,4 @@ export default function App() {
     default:
       return <Home onNavigate={navigateTo} />;
   }
-}
+} 

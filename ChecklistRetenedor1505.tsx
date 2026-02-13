@@ -496,3 +496,4 @@ export const ChecklistRetenedor1505: React.FC<Props> = ({ onBack, reportId }) =>
     </div>
   );
 };
+ 

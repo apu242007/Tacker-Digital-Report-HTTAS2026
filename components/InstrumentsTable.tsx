@@ -103,4 +103,4 @@ export const InstrumentsTable: React.FC<Props> = ({ instruments, onChange }) => 
       </div>
     </div>
   );
-};
+}; 

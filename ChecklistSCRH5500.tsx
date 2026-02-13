@@ -519,3 +519,4 @@ export const ChecklistSCRH5500: React.FC<Props> = ({ onBack, reportId }) => {
     </div>
   );
 };
+ 
