@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
+      base: '/Tacker-Digital-Report-HTTAS2026/', // <--- AGREGA ESTA LÍNEA AQUÍ
       server: {
         port: 3000,
         host: '0.0.0.0',
