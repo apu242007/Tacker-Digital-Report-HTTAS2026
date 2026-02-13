@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tacker Solutions - Informe de Reparacion</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              tackerRed: '#d3121d',
+              tackerDark: '#1a1a1a',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Estilos CSS -->
+    <style>
+        @media print {
+            .break-before-page { page-break-before: always; }
+            .print\:hidden { display: none !important; }
+            .print\:shadow-none { box-shadow: none !important; }
+            .print\:w-full { width: 100% !important; max-width: none !important; }
+            .print\:static { position: static !important; }
+            body { background-color: white; }
+        }
+        textarea { field-sizing: content; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
