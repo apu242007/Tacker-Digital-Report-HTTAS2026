@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import kitWireLineImage from './images/10. KIT WIRE LINE 1617-5500.png';
 import { TraceabilityItem, ControlCheckItem, ReportData, InstrumentItem } from './types';
 import { INITIAL_TRACEABILITY_KITWIRELINE, INITIAL_CHECKS_KITWIRELINE, INITIAL_INSTRUMENTS_KITWIRELINE } from './constants';
 import { TraceabilityTable } from './components/TraceabilityTable';
@@ -343,21 +344,12 @@ export const ChecklistKitWireLine: React.FC<Props> = ({ onBack, reportId }) => {
 
                     <div className="flex flex-col md:flex-row gap-8">
                         {/* Graphic Placeholder / Image */}
-                        <div className="w-full md:w-1/3 flex items-start justify-center py-4 bg-gray-50 border border-gray-200 rounded min-h-[300px]">
-                            <div className="text-center p-4">
-                                <p className="font-bold text-gray-600 mb-2">Gráfico</p>
-                                <div className="border-2 border-dashed border-gray-300 p-8 rounded">
-                                    <img 
-                                        src="KIT-WIRELINE-1617-5500.png" 
-                                        alt="Diagrama Kit Wire Line 1617-5500" 
-                                        className="w-full h-auto object-contain max-h-[250px]"
-                                        onError={(e) => {
-                                            e.currentTarget.style.display = 'none';
-                                        }}
-                                    />
-                                    <p className="text-xs text-gray-400 mt-2">KIT-WIRELINE-1617-5500.png</p>
-                                </div>
-                            </div>
+                        <div className="w-full md:w-1/3 flex items-start justify-center py-4 bg-gray-50 border border-gray-200 rounded">
+                            <img 
+                                src={kitWireLineImage}
+                                alt="Diagrama Kit Wire Line 1617-5500"
+                                className="w-full h-auto object-contain max-h-[900px] p-2"
+                            />
                         </div>
 
                         {/* Input Fields */}
@@ -366,6 +358,8 @@ export const ChecklistKitWireLine: React.FC<Props> = ({ onBack, reportId }) => {
                                 <span className="font-bold text-lg">Libraje: 
                                     <input 
                                         type="text"
+                                        title="Libraje"
+                                        placeholder="5 1/2&quot;"
                                         value={data.dimensional.libraje}
                                         onChange={(e) => setData({...data, dimensional: {...data.dimensional, libraje: e.target.value}})}
                                         className="ml-2 w-24 border-b border-gray-400 text-center font-mono"
@@ -381,6 +375,8 @@ export const ChecklistKitWireLine: React.FC<Props> = ({ onBack, reportId }) => {
                                     <label className="w-10 font-bold">OD:</label>
                                     <input 
                                       type="text" 
+                                      title="Diámetro exterior máximo/mínimo"
+                                      placeholder="0.000"
                                       value={data.dimensional.maxMin.od}
                                       onChange={(e) => setData({...data, dimensional: {...data.dimensional, maxMin: {...data.dimensional.maxMin, od: e.target.value}}})}
                                       className="border-b border-gray-400 w-32 px-1 focus:outline-none focus:border-tackerRed text-center" 
@@ -391,6 +387,8 @@ export const ChecklistKitWireLine: React.FC<Props> = ({ onBack, reportId }) => {
                                     <label className="w-10 font-bold">ID:</label>
                                     <input 
                                       type="text" 
+                                      title="Diámetro interior máximo/mínimo"
+                                      placeholder="0.000"
                                       value={data.dimensional.maxMin.id}
                                       onChange={(e) => setData({...data, dimensional: {...data.dimensional, maxMin: {...data.dimensional.maxMin, id: e.target.value}}})}
                                       className="border-b border-gray-400 w-32 px-1 focus:outline-none focus:border-tackerRed text-center" 
@@ -407,6 +405,8 @@ export const ChecklistKitWireLine: React.FC<Props> = ({ onBack, reportId }) => {
                                   <label className="font-bold">A:</label>
                                   <input 
                                     type="text"
+                                    title="Longitud A"
+                                    placeholder="0.00"
                                     value={data.dimensional.lengths.a}
                                     onChange={(e) => setData({...data, dimensional: {...data.dimensional, lengths: {...data.dimensional.lengths, a: e.target.value}}})}
                                     className="border-b border-gray-400 w-20 px-1 focus:outline-none focus:border-tackerRed text-center" 
@@ -422,6 +422,8 @@ export const ChecklistKitWireLine: React.FC<Props> = ({ onBack, reportId }) => {
                                   <label className="font-bold w-12">OD 1:</label>
                                   <input 
                                     type="text"
+                                    title="Diámetro exterior OD 1"
+                                    placeholder="0.000"
                                     value={data.dimensional.diameters.od1}
                                     onChange={(e) => setData({...data, dimensional: {...data.dimensional, diameters: {...data.dimensional.diameters, od1: e.target.value}}})}
                                     className="border-b border-gray-400 w-20 px-1 focus:outline-none focus:border-tackerRed text-center" 
@@ -450,6 +452,7 @@ export const ChecklistKitWireLine: React.FC<Props> = ({ onBack, reportId }) => {
                                 <span>Fecha:</span> 
                                 <input 
                                   type="date" 
+                                  title="Fecha de ensamblaje"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.assembledDate}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, assembledDate: e.target.value}})}
@@ -458,6 +461,8 @@ export const ChecklistKitWireLine: React.FC<Props> = ({ onBack, reportId }) => {
                              <div className="flex justify-between items-end">
                                 <span>Nombre:</span> 
                                 <input 
+                                  title="Nombre de quien ensambló"
+                                  placeholder="Nombre"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.assembledBy}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, assembledBy: e.target.value}})}
@@ -479,6 +484,7 @@ export const ChecklistKitWireLine: React.FC<Props> = ({ onBack, reportId }) => {
                                 <span>Fecha:</span> 
                                 <input 
                                   type="date" 
+                                  title="Fecha de supervisión"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.supervisedDate}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, supervisedDate: e.target.value}})}
@@ -487,6 +493,8 @@ export const ChecklistKitWireLine: React.FC<Props> = ({ onBack, reportId }) => {
                              <div className="flex justify-between items-end">
                                 <span>Nombre:</span> 
                                 <input 
+                                  title="Nombre del supervisor"
+                                  placeholder="Nombre"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.supervisedBy}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, supervisedBy: e.target.value}})}
