@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import tkr1Image9580 from './images/5-EMPAQUE RECUPERABLE TKR1 0101-9580.png';
 import { TraceabilityItem, ControlCheckItem, ReportData, DimensionalData, InstrumentItem } from './types';
 import { INITIAL_TRACEABILITY_9580, INITIAL_CHECKS_9580, INITIAL_INSTRUMENTS_9580 } from './constants';
 import { TraceabilityTable } from './components/TraceabilityTable';
@@ -349,7 +350,7 @@ export const Checklist9580: React.FC<Props> = ({ onBack, reportId }) => {
                 <DimensionalSection 
                     data={data.dimensional} 
                     onChange={(newDim) => setData({...data, dimensional: newDim})} 
-                    imageFileName="1-EMPAQUE RECUPERABLE TKR1 0101-9580.png"
+                    imageFileName={tkr1Image9580}
                 />
                 
                 <div className="mt-4 border border-gray-300 p-4 bg-white">
