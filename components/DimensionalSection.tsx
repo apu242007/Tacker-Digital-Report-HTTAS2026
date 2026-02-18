@@ -40,31 +40,30 @@ export const DimensionalSection: React.FC<Props> = ({ data, onChange, imageFileN
         6. Control Dimensional
       </div>
 
-      <div className="flex flex-col md:flex-row gap-8">
-        {/* Image Replacement */}
-        <div className="w-full md:w-1/3 flex items-start justify-center py-4 bg-white relative">
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+        {/* Imagen: ocupa ancho completo en mobile, 1/3 en sm+ */}
+        <div className="w-full sm:w-1/3 flex items-start justify-center py-2 sm:py-4 bg-white relative">
              <img 
                 src={imageFileName} 
                 alt="Diagrama de Herramienta Tacker" 
-                className="w-full h-auto object-contain max-h-[900px]"
+                className="w-full h-auto object-contain max-h-64 sm:max-h-[900px]"
                 onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     const errDiv = document.getElementById('img-error');
                     if (errDiv) errDiv.style.display = 'block';
-                    // Update error text if possible, or leave generic
                     const errCode = document.getElementById('err-code-text');
                     if (errCode) errCode.innerText = imageFileName;
                 }}
             />
-            <div id="img-error" className="hidden text-center p-8 border-2 border-dashed border-gray-300 rounded text-gray-500 mt-10">
+            <div id="img-error" className="hidden text-center p-4 border-2 border-dashed border-gray-300 rounded text-gray-500">
                 <p className="font-bold text-red-500 mb-2">Imagen no encontrada</p>
-                <p className="text-sm">Por favor, asegúrese de que el archivo de imagen exista en la carpeta del proyecto con el nombre:</p>
+                <p className="text-sm">Asegúrese de que el archivo exista:</p>
                 <code id="err-code-text" className="block bg-gray-100 p-2 mt-2 font-mono text-black border border-gray-300 rounded text-xs break-all">{imageFileName}</code>
             </div>
         </div>
 
-        {/* Input Fields */}
-        <div className="w-full md:w-2/3 space-y-6 text-sm">
+        {/* Campos: ancho completo en mobile, 2/3 en sm+ */}
+        <div className="w-full sm:w-2/3 space-y-4 sm:space-y-6 text-sm">
             <div className="flex justify-between items-center pb-2 border-b border-gray-200">
                 <span className="font-bold text-lg">Diametro: <span className="ml-2 font-mono">5"</span></span>
                 <span className="font-bold text-lg">Libraje: <span className="ml-2 font-mono">18#</span></span>
