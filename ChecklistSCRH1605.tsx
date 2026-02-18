@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import scrhImage from './images/6-SETTING TOOL HIDRÁULICA SCRH 1605-7000.png';
+import scrhDiagramImage from './images/6.1-SETTING TOOL HIDRÁULICA SCRH 1605-7000.png';
 import { TraceabilityItem, ControlCheckItem, ReportData, DimensionalData, InstrumentItem } from './types';
 import { INITIAL_TRACEABILITY_SCRH1605, INITIAL_CHECKS_SCRH1605, INITIAL_INSTRUMENTS_SCRH1605 } from './constants';
 import { TraceabilityTable } from './components/TraceabilityTable';
@@ -284,10 +285,18 @@ export const ChecklistSCRH1605: React.FC<Props> = ({ onBack, reportId }) => {
                 
                 {/* Inline diagram note between checks 5 and 6 */}
                 <div className="my-4 border border-gray-300 bg-gray-50 p-4 rounded text-sm">
-                    <div className="text-center space-y-1 font-mono text-gray-700">
-                        <p className="font-bold">1605-7000-0008 CAMISA PORTA TRABA</p>
-                        <p>5716 (X2) PIN DE CORTE</p>
-                        <p className="font-bold">1605-7000-0011 CAMISA ASIENTO TRABA</p>
+                    <p className="font-bold text-center text-gray-700 mb-3">5. Colocar la camisa asiento traba en el sentido que corresponde</p>
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                        <div className="text-center space-y-1 font-mono text-gray-700">
+                            <p className="font-bold">1605-7000-0008 CAMISA PORTA TRABA</p>
+                            <p>5716 (X2) PIN DE CORTE</p>
+                            <p className="font-bold">1605-7000-0011 CAMISA ASIENTO TRABA</p>
+                        </div>
+                        <img
+                            src={scrhDiagramImage}
+                            alt="Orientación camisa asiento traba SCRH 1605-7000"
+                            className="max-h-64 object-contain mx-auto"
+                        />
                     </div>
                 </div>
 
