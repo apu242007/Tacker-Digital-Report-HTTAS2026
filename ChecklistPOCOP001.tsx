@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import tkr1Image from './images/1-EMPAQUE RECUPERABLE TKR1 0101-5000.png';
 import { TraceabilityItem, ControlCheckItem, ReportData, DimensionalData, InstrumentItem } from './types';
 import { INITIAL_TRACEABILITY, INITIAL_CHECKS, INITIAL_INSTRUMENTS } from './constants';
 import { TraceabilityTable } from './components/TraceabilityTable';
@@ -256,7 +257,7 @@ export const ChecklistPOCOP001: React.FC<Props> = ({ onBack, reportId }) => {
         {/* PRODUCT IMAGE */}
         <div className="p-4 flex justify-center bg-white border-b border-gray-200">
             <img 
-                src="./images/1-EMPAQUE RECUPERABLE TKR1 0101-5000.png" 
+                src={tkr1Image} 
                 alt="Empaque Recuperable TKR1 0101-5000" 
                 className="max-w-full h-auto max-h-96 object-contain"
             />
