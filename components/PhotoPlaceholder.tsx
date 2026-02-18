@@ -73,6 +73,7 @@ export const PhotoPlaceholder: React.FC<Props> = ({ title, images, onAdd, onRemo
                     type="file" 
                     multiple 
                     accept="image/*" 
+                    title="Seleccionar fotos"
                     className="hidden" 
                     ref={fileInputRef}
                     onChange={handleFileChange}
