@@ -1,4 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import scrh5500Image from './images/7.SETTING TOOL HIDRÁULICA SCRH 1605-5500.png';
+import scrh5500DiagramImage from './images/7.1.SETTING TOOL HIDRÁULICA SCRH 1605-5500.png';
 import { TraceabilityItem, ControlCheckItem, ReportData, DimensionalData, InstrumentItem } from './types';
 import { INITIAL_TRACEABILITY_SCRH5500, INITIAL_CHECKS_SCRH5500, INITIAL_INSTRUMENTS_SCRH5500 } from './constants';
 import { TraceabilityTable } from './components/TraceabilityTable';
@@ -281,12 +283,19 @@ export const ChecklistSCRH5500: React.FC<Props> = ({ onBack, reportId }) => {
             <section>
                 <PreAssemblyChecks checks={data.preAssemblyChecks} onChange={handleCheckChange} />
                 
-                {/* Inline diagram note between checks 5 and 6 */}
-                <div className="my-4 border border-gray-300 bg-gray-50 p-4 rounded text-sm">
-                    <div className="text-center space-y-1 font-mono text-gray-700">
-                        <p className="font-bold">1605-5500-0008 CAMISA PORTA TRABA</p>
-                        <p>5715 (X2) PIN DE CORTE</p>
-                        <p className="font-bold">1605-5500-0011 CAMISA ASIENTO TRABA</p>
+                {/* Imagen referencia punto 5: orientación camisa asiento traba */}
+                <div className="my-4 border border-gray-300 bg-gray-50 p-4 rounded">
+                    <div className="flex flex-col sm:flex-row items-center gap-6">
+                        <img
+                            src={scrh5500DiagramImage}
+                            alt="Orientación camisa asiento traba SCRH 1605-5500"
+                            className="max-h-80 object-contain mx-auto"
+                        />
+                        <div className="text-center sm:text-left space-y-1 font-mono text-sm text-gray-700">
+                            <p className="font-bold">1605-5500-0008 CAMISA PORTA TRABA</p>
+                            <p>5715 (X2) PIN DE CORTE</p>
+                            <p className="font-bold">1605-5500-0011 CAMISA ASIENTO TRABA</p>
+                        </div>
                     </div>
                 </div>
 
@@ -314,6 +323,8 @@ export const ChecklistSCRH5500: React.FC<Props> = ({ onBack, reportId }) => {
                         <div className="flex items-center gap-2">
                             <input 
                                 type="text" 
+                                title="Fuerza de corte del pin en Lbs"
+                                placeholder="0"
                                 value={calibratorLoad}
                                 onChange={(e) => setCalibratorLoad(e.target.value)}
                                 className="w-20 border-b border-gray-400 text-center font-mono bg-transparent outline-none"
@@ -348,11 +359,11 @@ export const ChecklistSCRH5500: React.FC<Props> = ({ onBack, reportId }) => {
                     <div className="space-y-2">
                         <div className="flex items-center gap-2">
                             <span className="font-bold">Fecha:</span>
-                            <input type="date" className="border-b bg-transparent outline-none" />
+                            <input type="date" title="Fecha del reporte de inspección" className="border-b bg-transparent outline-none" />
                         </div>
                         <div className="flex items-center gap-2">
                             <span className="font-bold">Fecha:</span>
-                            <input type="date" className="border-b bg-transparent outline-none" />
+                            <input type="date" title="Fecha del reporte de incidente" className="border-b bg-transparent outline-none" />
                         </div>
                     </div>
                 </div>
@@ -378,7 +389,7 @@ export const ChecklistSCRH5500: React.FC<Props> = ({ onBack, reportId }) => {
                 <DimensionalSection 
                     data={data.dimensional} 
                     onChange={(newDim) => setData({...data, dimensional: newDim})} 
-                    imageFileName="1-SETTING TOOL HIDRAULICA SCRH 1605-5500.png"
+                    imageFileName={scrh5500Image}
                 />
                 
                 <div className="mt-4 border border-gray-300 p-4 bg-white">
@@ -409,6 +420,7 @@ export const ChecklistSCRH5500: React.FC<Props> = ({ onBack, reportId }) => {
                                 <span>Fecha:</span> 
                                 <input 
                                   type="date" 
+                                  title="Fecha de ensamblaje"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.assembledDate}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, assembledDate: e.target.value}})}
@@ -417,6 +429,8 @@ export const ChecklistSCRH5500: React.FC<Props> = ({ onBack, reportId }) => {
                              <div className="flex justify-between items-end">
                                 <span>Nombre:</span> 
                                 <input 
+                                  title="Nombre de quien ensambló"
+                                  placeholder="Nombre"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.assembledBy}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, assembledBy: e.target.value}})}
@@ -438,6 +452,7 @@ export const ChecklistSCRH5500: React.FC<Props> = ({ onBack, reportId }) => {
                                 <span>Fecha:</span> 
                                 <input 
                                   type="date" 
+                                  title="Fecha de supervisión"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.supervisedDate}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, supervisedDate: e.target.value}})}
@@ -446,6 +461,8 @@ export const ChecklistSCRH5500: React.FC<Props> = ({ onBack, reportId }) => {
                              <div className="flex justify-between items-end">
                                 <span>Nombre:</span> 
                                 <input 
+                                  title="Nombre del supervisor"
+                                  placeholder="Nombre"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.supervisedBy}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, supervisedBy: e.target.value}})}
