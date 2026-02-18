@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import snt2Image from './images/9. SETTING TOOL HIDRÁULICA SNT2 1667-7000.png';
 import { TraceabilityItem, ControlCheckItem, ReportData, InstrumentItem } from './types';
 import { INITIAL_TRACEABILITY_SNT2_1667, INITIAL_CHECKS_SNT2_1667, INITIAL_INSTRUMENTS_SNT2_1667 } from './constants';
 import { TraceabilityTable } from './components/TraceabilityTable';
@@ -349,21 +350,12 @@ export const ChecklistSNT2_1667: React.FC<Props> = ({ onBack, reportId }) => {
 
                     <div className="flex flex-col md:flex-row gap-8">
                         {/* Graphic Placeholder / Image */}
-                        <div className="w-full md:w-1/3 flex items-start justify-center py-4 bg-gray-50 border border-gray-200 rounded min-h-[400px]">
-                            <div className="text-center p-4">
-                                <p className="font-bold text-gray-600 mb-2">Gráfico</p>
-                                <div className="border-2 border-dashed border-gray-300 p-8 rounded">
-                                    <img 
-                                        src="SNT2-1667-7000.png" 
-                                        alt="Diagrama Setting Tool SNT2 1667-7000" 
-                                        className="w-full h-auto object-contain max-h-[350px]"
-                                        onError={(e) => {
-                                            e.currentTarget.style.display = 'none';
-                                        }}
-                                    />
-                                    <p className="text-xs text-gray-400 mt-2">SNT2-1667-7000.png</p>
-                                </div>
-                            </div>
+                        <div className="w-full md:w-1/3 flex items-start justify-center py-4 bg-gray-50 border border-gray-200 rounded">
+                            <img 
+                                src={snt2Image}
+                                alt="Diagrama Setting Tool SNT2 1667-7000"
+                                className="w-full h-auto object-contain max-h-[900px] p-2"
+                            />
                         </div>
 
                         {/* Input Fields */}
@@ -372,6 +364,8 @@ export const ChecklistSNT2_1667: React.FC<Props> = ({ onBack, reportId }) => {
                                 <span className="font-bold text-lg">Libraje: 
                                     <input 
                                         type="text"
+                                        title="Libraje"
+                                        placeholder="7&quot;"
                                         value={data.dimensional.libraje}
                                         onChange={(e) => setData({...data, dimensional: {...data.dimensional, libraje: e.target.value}})}
                                         className="ml-2 w-16 border-b border-gray-400 text-center font-mono"
@@ -387,6 +381,8 @@ export const ChecklistSNT2_1667: React.FC<Props> = ({ onBack, reportId }) => {
                                     <label className="w-10 font-bold">OD:</label>
                                     <input 
                                       type="text" 
+                                      title="Diámetro exterior máximo/mínimo"
+                                      placeholder="0.000"
                                       value={data.dimensional.maxMin.od}
                                       onChange={(e) => setData({...data, dimensional: {...data.dimensional, maxMin: {...data.dimensional.maxMin, od: e.target.value}}})}
                                       className="border-b border-gray-400 w-32 px-1 focus:outline-none focus:border-tackerRed text-center" 
@@ -397,6 +393,8 @@ export const ChecklistSNT2_1667: React.FC<Props> = ({ onBack, reportId }) => {
                                     <label className="w-10 font-bold">ID:</label>
                                     <input 
                                       type="text" 
+                                      title="Diámetro interior máximo/mínimo"
+                                      placeholder="0.000"
                                       value={data.dimensional.maxMin.id}
                                       onChange={(e) => setData({...data, dimensional: {...data.dimensional, maxMin: {...data.dimensional.maxMin, id: e.target.value}}})}
                                       className="border-b border-gray-400 w-32 px-1 focus:outline-none focus:border-tackerRed text-center" 
@@ -415,6 +413,8 @@ export const ChecklistSNT2_1667: React.FC<Props> = ({ onBack, reportId }) => {
                                         <label className="font-bold">{letter}:</label>
                                         <input 
                                           type="text"
+                                          title={`Longitud ${letter}`}
+                                          placeholder="0.00"
                                           value={(data.dimensional.lengths as any)[letter.toLowerCase()] || ''}
                                           onChange={(e) => setData({...data, dimensional: {...data.dimensional, lengths: {...data.dimensional.lengths, [letter.toLowerCase()]: e.target.value}}})}
                                           className="border-b border-gray-400 w-20 px-1 focus:outline-none focus:border-tackerRed text-center" 
@@ -434,6 +434,8 @@ export const ChecklistSNT2_1667: React.FC<Props> = ({ onBack, reportId }) => {
                                         <label className="font-bold w-12">OD {num}:</label>
                                         <input 
                                           type="text"
+                                          title={`Diámetro exterior OD ${num}`}
+                                          placeholder="0.000"
                                           value={(data.dimensional.diameters as any)[`od${num}`] || ''}
                                           onChange={(e) => setData({...data, dimensional: {...data.dimensional, diameters: {...data.dimensional.diameters, [`od${num}`]: e.target.value}}})}
                                           className="border-b border-gray-400 w-20 px-1 focus:outline-none focus:border-tackerRed text-center" 
@@ -452,6 +454,8 @@ export const ChecklistSNT2_1667: React.FC<Props> = ({ onBack, reportId }) => {
                                         <span>Área Setting Tool:</span>
                                         <input 
                                           type="text"
+                                          title="Área Setting Tool"
+                                          placeholder="0.00"
                                           value={data.dimensional.areaSettingTool}
                                           onChange={(e) => setData({...data, dimensional: {...data.dimensional, areaSettingTool: e.target.value}})}
                                           className="border-b border-gray-400 w-20 px-1 focus:outline-none focus:border-tackerRed text-center" 
@@ -499,6 +503,7 @@ export const ChecklistSNT2_1667: React.FC<Props> = ({ onBack, reportId }) => {
                                 <span>Fecha:</span> 
                                 <input 
                                   type="date" 
+                                  title="Fecha de ensamblaje"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.assembledDate}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, assembledDate: e.target.value}})}
@@ -507,6 +512,8 @@ export const ChecklistSNT2_1667: React.FC<Props> = ({ onBack, reportId }) => {
                              <div className="flex justify-between items-end">
                                 <span>Nombre:</span> 
                                 <input 
+                                  title="Nombre de quien ensambló"
+                                  placeholder="Nombre"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.assembledBy}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, assembledBy: e.target.value}})}
@@ -528,6 +535,7 @@ export const ChecklistSNT2_1667: React.FC<Props> = ({ onBack, reportId }) => {
                                 <span>Fecha:</span> 
                                 <input 
                                   type="date" 
+                                  title="Fecha de supervisión"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.supervisedDate}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, supervisedDate: e.target.value}})}
@@ -536,6 +544,8 @@ export const ChecklistSNT2_1667: React.FC<Props> = ({ onBack, reportId }) => {
                              <div className="flex justify-between items-end">
                                 <span>Nombre:</span> 
                                 <input 
+                                  title="Nombre del supervisor"
+                                  placeholder="Nombre"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.supervisedBy}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, supervisedBy: e.target.value}})}
