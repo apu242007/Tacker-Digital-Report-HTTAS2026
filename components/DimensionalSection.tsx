@@ -7,7 +7,7 @@ interface Props {
   imageFileName?: string;
 }
 
-export const DimensionalSection: React.FC<Props> = ({ data, onChange, imageFileName = "1-EMPAQUE RECUPERABLE TKR1 0101-5000.png" }) => {
+export const DimensionalSection: React.FC<Props> = ({ data, onChange, imageFileName }) => {
   
   const updateLength = (key: string, val: string) => {
     onChange({ ...data, lengths: { ...data.lengths, [key]: val } });

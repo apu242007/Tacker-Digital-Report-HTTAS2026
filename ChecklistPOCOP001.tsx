@@ -346,7 +346,7 @@ export const ChecklistPOCOP001: React.FC<Props> = ({ onBack, reportId }) => {
 
              {/* SECTION 6: DIMENSIONAL */}
              <section className="break-before-page">
-                <DimensionalSection data={data.dimensional} onChange={(newDim) => setData({...data, dimensional: newDim})} />
+                <DimensionalSection data={data.dimensional} onChange={(newDim) => setData({...data, dimensional: newDim})} imageFileName={tkr1Image} />
                 <InstrumentsTable instruments={data.instruments} onChange={handleInstrumentChange} />
              </section>
              
