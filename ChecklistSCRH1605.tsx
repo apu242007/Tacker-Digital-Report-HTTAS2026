@@ -283,20 +283,19 @@ export const ChecklistSCRH1605: React.FC<Props> = ({ onBack, reportId }) => {
             <section>
                 <PreAssemblyChecks checks={data.preAssemblyChecks} onChange={handleCheckChange} />
                 
-                {/* Inline diagram note between checks 5 and 6 */}
-                <div className="my-4 border border-gray-300 bg-gray-50 p-4 rounded text-sm">
-                    <p className="font-bold text-center text-gray-700 mb-3">5. Colocar la camisa asiento traba en el sentido que corresponde</p>
-                    <div className="flex flex-col sm:flex-row items-center gap-4">
-                        <div className="text-center space-y-1 font-mono text-gray-700">
+                {/* Imagen referencia punto 5: orientación camisa asiento traba */}
+                <div className="my-4 border border-gray-300 bg-gray-50 p-4 rounded">
+                    <div className="flex flex-col sm:flex-row items-center gap-6">
+                        <img
+                            src={scrhDiagramImage}
+                            alt="Orientación camisa asiento traba SCRH 1605-7000"
+                            className="max-h-80 object-contain mx-auto"
+                        />
+                        <div className="text-center sm:text-left space-y-1 font-mono text-sm text-gray-700">
                             <p className="font-bold">1605-7000-0008 CAMISA PORTA TRABA</p>
                             <p>5716 (X2) PIN DE CORTE</p>
                             <p className="font-bold">1605-7000-0011 CAMISA ASIENTO TRABA</p>
                         </div>
-                        <img
-                            src={scrhDiagramImage}
-                            alt="Orientación camisa asiento traba SCRH 1605-7000"
-                            className="max-h-64 object-contain mx-auto"
-                        />
                     </div>
                 </div>
 
