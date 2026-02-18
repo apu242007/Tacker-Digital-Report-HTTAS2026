@@ -377,7 +377,8 @@ export const Checklist7000: React.FC<Props> = ({ onBack, reportId }) => {
                              <div className="flex justify-between items-end">
                                 <span>Fecha:</span> 
                                 <input 
-                                  type="date" 
+                                  type="date"
+                                  title="Fecha de ensamblaje"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.assembledDate}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, assembledDate: e.target.value}})}
@@ -386,6 +387,8 @@ export const Checklist7000: React.FC<Props> = ({ onBack, reportId }) => {
                              <div className="flex justify-between items-end">
                                 <span>Nombre:</span> 
                                 <input 
+                                  title="Nombre de quien ensambló"
+                                  placeholder="Nombre"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.assembledBy}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, assembledBy: e.target.value}})}
@@ -406,7 +409,8 @@ export const Checklist7000: React.FC<Props> = ({ onBack, reportId }) => {
                              <div className="flex justify-between items-end">
                                 <span>Fecha:</span> 
                                 <input 
-                                  type="date" 
+                                  type="date"
+                                  title="Fecha de supervisión"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.supervisedDate}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, supervisedDate: e.target.value}})}
@@ -415,6 +419,8 @@ export const Checklist7000: React.FC<Props> = ({ onBack, reportId }) => {
                              <div className="flex justify-between items-end">
                                 <span>Nombre:</span> 
                                 <input 
+                                  title="Nombre de quien supervisó"
+                                  placeholder="Nombre"
                                   className="border-b border-gray-400 w-40 outline-none bg-transparent"
                                   value={data.signatures.supervisedBy}
                                   onChange={(e) => setData({...data, signatures: {...data.signatures, supervisedBy: e.target.value}})}
