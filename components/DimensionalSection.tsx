@@ -77,7 +77,9 @@ export const DimensionalSection: React.FC<Props> = ({ data, onChange, imageFileN
                  <div className="flex items-center gap-2">
                     <label className="w-10 font-bold">OD:</label>
                     <input 
-                      type="text" 
+                      type="text"
+                      title="Diámetro exterior máximo/mínimo"
+                      placeholder="0.000"
                       value={data.maxMin.od}
                       onChange={(e) => updateMaxMin('od', e.target.value)}
                       className="border-b border-gray-400 w-32 px-1 focus:outline-none focus:border-tackerRed text-center" 
@@ -87,7 +89,9 @@ export const DimensionalSection: React.FC<Props> = ({ data, onChange, imageFileN
                  <div className="flex items-center gap-2">
                     <label className="w-10 font-bold">ID:</label>
                     <input 
-                      type="text" 
+                      type="text"
+                      title="Diámetro interior máximo/mínimo"
+                      placeholder="0.000"
                       value={data.maxMin.id}
                       onChange={(e) => updateMaxMin('id', e.target.value)}
                       className="border-b border-gray-400 w-32 px-1 focus:outline-none focus:border-tackerRed text-center" 
@@ -106,6 +110,8 @@ export const DimensionalSection: React.FC<Props> = ({ data, onChange, imageFileN
                             <div className="flex items-center gap-1 flex-1">
                               <input 
                                   type="text"
+                                  title={`Longitud ${label}`}
+                                  placeholder="0.00"
                                   value={data.lengths[label] || ''}
                                   onChange={(e) => updateLength(label, e.target.value)}
                                   className="w-full border-b border-gray-400 text-center px-1 focus:outline-none focus:border-tackerRed"
@@ -127,6 +133,8 @@ export const DimensionalSection: React.FC<Props> = ({ data, onChange, imageFileN
                                 <div className="flex items-center gap-1 flex-1">
                                   <input 
                                       type="text"
+                                      title={`Diámetro ${label}`}
+                                      placeholder="0.000"
                                       value={data.od[key] || ''}
                                       onChange={(e) => updateOd(key, e.target.value)}
                                       className="w-full border-b border-gray-400 text-center px-1 focus:outline-none focus:border-tackerRed"
@@ -154,10 +162,10 @@ export const DimensionalSection: React.FC<Props> = ({ data, onChange, imageFileN
                      <div className="flex items-center justify-between border-b border-dashed border-gray-300 pb-1">
                         <span className="font-bold">Pistón: <span className="font-normal ml-2">6003</span></span>
                         <div className="flex gap-3 px-8">
-                            <input type="checkbox" checked={data.accessories.piston.a} onChange={(e) => updateAccessory('piston', 'a', e.target.checked)} />
-                            <input type="checkbox" checked={data.accessories.piston.b} onChange={(e) => updateAccessory('piston', 'b', e.target.checked)} />
-                            <input type="checkbox" checked={data.accessories.piston.u} onChange={(e) => updateAccessory('piston', 'u', e.target.checked)} />
-                            <input type="checkbox" checked={data.accessories.piston.check} onChange={(e) => updateAccessory('piston', 'check', e.target.checked)} />
+                            <input type="checkbox" title="Pistón - A" checked={data.accessories.piston.a} onChange={(e) => updateAccessory('piston', 'a', e.target.checked)} />
+                            <input type="checkbox" title="Pistón - B" checked={data.accessories.piston.b} onChange={(e) => updateAccessory('piston', 'b', e.target.checked)} />
+                            <input type="checkbox" title="Pistón - U" checked={data.accessories.piston.u} onChange={(e) => updateAccessory('piston', 'u', e.target.checked)} />
+                            <input type="checkbox" title="Pistón - Check" checked={data.accessories.piston.check} onChange={(e) => updateAccessory('piston', 'check', e.target.checked)} />
                         </div>
                      </div>
 
@@ -165,10 +173,10 @@ export const DimensionalSection: React.FC<Props> = ({ data, onChange, imageFileN
                      <div className="flex items-center justify-between border-b border-dashed border-gray-300 pb-1">
                         <span className="font-bold">Mordaza: <span className="font-normal ml-2">1007</span></span>
                         <div className="flex gap-3 px-8">
-                            <input type="checkbox" checked={data.accessories.mordaza.a} onChange={(e) => updateAccessory('mordaza', 'a', e.target.checked)} />
-                            <input type="checkbox" checked={data.accessories.mordaza.b} onChange={(e) => updateAccessory('mordaza', 'b', e.target.checked)} />
-                            <input type="checkbox" checked={data.accessories.mordaza.u} onChange={(e) => updateAccessory('mordaza', 'u', e.target.checked)} />
-                            <input type="checkbox" checked={data.accessories.mordaza.check} onChange={(e) => updateAccessory('mordaza', 'check', e.target.checked)} />
+                            <input type="checkbox" title="Mordaza - A" checked={data.accessories.mordaza.a} onChange={(e) => updateAccessory('mordaza', 'a', e.target.checked)} />
+                            <input type="checkbox" title="Mordaza - B" checked={data.accessories.mordaza.b} onChange={(e) => updateAccessory('mordaza', 'b', e.target.checked)} />
+                            <input type="checkbox" title="Mordaza - U" checked={data.accessories.mordaza.u} onChange={(e) => updateAccessory('mordaza', 'u', e.target.checked)} />
+                            <input type="checkbox" title="Mordaza - Check" checked={data.accessories.mordaza.check} onChange={(e) => updateAccessory('mordaza', 'check', e.target.checked)} />
                         </div>
                      </div>
 
@@ -176,10 +184,10 @@ export const DimensionalSection: React.FC<Props> = ({ data, onChange, imageFileN
                      <div className="flex items-center justify-between border-b border-dashed border-gray-300 pb-1">
                         <span className="font-bold">Block: <span className="font-normal ml-2">8021</span></span>
                         <div className="flex gap-3 px-8">
-                            <input type="checkbox" checked={data.accessories.block.a} onChange={(e) => updateAccessory('block', 'a', e.target.checked)} />
-                            <input type="checkbox" checked={data.accessories.block.b} onChange={(e) => updateAccessory('block', 'b', e.target.checked)} />
-                            <input type="checkbox" checked={data.accessories.block.u} onChange={(e) => updateAccessory('block', 'u', e.target.checked)} />
-                            <input type="checkbox" checked={data.accessories.block.check} onChange={(e) => updateAccessory('block', 'check', e.target.checked)} />
+                            <input type="checkbox" title="Block - A" checked={data.accessories.block.a} onChange={(e) => updateAccessory('block', 'a', e.target.checked)} />
+                            <input type="checkbox" title="Block - B" checked={data.accessories.block.b} onChange={(e) => updateAccessory('block', 'b', e.target.checked)} />
+                            <input type="checkbox" title="Block - U" checked={data.accessories.block.u} onChange={(e) => updateAccessory('block', 'u', e.target.checked)} />
+                            <input type="checkbox" title="Block - Check" checked={data.accessories.block.check} onChange={(e) => updateAccessory('block', 'check', e.target.checked)} />
                         </div>
                      </div>
                 </div>
@@ -188,7 +196,9 @@ export const DimensionalSection: React.FC<Props> = ({ data, onChange, imageFileN
                    <div className="flex items-center gap-2">
                       <span className="w-32 text-sm">Conexión Superior:</span>
                       <input 
-                        type="text" 
+                        type="text"
+                        title="Conexión Superior"
+                        placeholder="Especifique conexión"
                         value={data.accessories.connUpper}
                         onChange={(e) => onChange({...data, accessories: {...data.accessories, connUpper: e.target.value}})}
                         className="flex-1 border-b border-gray-400 px-2 focus:outline-none focus:border-tackerRed" 
@@ -197,7 +207,9 @@ export const DimensionalSection: React.FC<Props> = ({ data, onChange, imageFileN
                    <div className="flex items-center gap-2">
                       <span className="w-32 text-sm">Conexión Inferior:</span>
                       <input 
-                        type="text" 
+                        type="text"
+                        title="Conexión Inferior"
+                        placeholder="Especifique conexión"
                         value={data.accessories.connLower}
                         onChange={(e) => onChange({...data, accessories: {...data.accessories, connLower: e.target.value}})}
                         className="flex-1 border-b border-gray-400 px-2 focus:outline-none focus:border-tackerRed" 
