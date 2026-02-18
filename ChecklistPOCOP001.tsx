@@ -253,6 +253,15 @@ export const ChecklistPOCOP001: React.FC<Props> = ({ onBack, reportId }) => {
             </h2>
         </div>
 
+        {/* PRODUCT IMAGE */}
+        <div className="p-4 flex justify-center bg-white border-b border-gray-200">
+            <img 
+                src="./images/1-EMPAQUE RECUPERABLE TKR1 0101-5000.png" 
+                alt="Empaque Recuperable TKR1 0101-5000" 
+                className="max-w-full h-auto max-h-96 object-contain"
+            />
+        </div>
+
         <div className="p-6 space-y-6">
             {/* SECTION 1: TRAZABILIDAD */}
             <section>
